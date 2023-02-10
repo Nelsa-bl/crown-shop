@@ -1,0 +1,43 @@
+.cat-btn-active {
+  background-color: black;
+  color: white;
+}
+
+.cat-btn {
+  padding: 10px 15px;
+  border: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.pro-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pro-image {
+  display: block;
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+}
+
+.pro-item {
+  margin: 15px;
+}
+
+.pro-cat {
+  background-color: #f5f5f5;
+  display: block;
+  width: max-content;
+  padding: 5px 10px;
+  font-size: 10px;
+  margin-top: -15px;
+}
+
+.products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  row-gap: 50px;
+}

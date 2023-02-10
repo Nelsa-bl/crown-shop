@@ -1,0 +1,36 @@
+// Import style
+import './category-item.style.scss';
+
+const Name = () => {
+  return <></>;
+};
+
+export default Name;
+
+// Ract add Sass
+yarn add sass
+
+// Ract router v.6
+yarn add react-router-dom@6
+in index.js wrap router around App
+
+// Firebase (Used for sign in)
+Google platform for Database
+https://firebase.google.com/
+Then click on "Go to console" in top right corner
+Click "Add project" give project a name
+Choose not to include Google Analytics
+Then in Terminal install Firebase
+yarn add firebase
+Then click on </> web button in your firbase
+Then add name and click on "Register app"
+Then copy code and paste
+Then in firebase go to "Authentication"
+Then click "Get started" and click on "Sign-in method"
+Choose "Google"
+Enable toggle
+Add Email for support "Your mail"
+
+In firbase create new Firebasebase Database
+Choose production mode, then in rules change
+allow read, write: if false; to  allow read, write: if true;

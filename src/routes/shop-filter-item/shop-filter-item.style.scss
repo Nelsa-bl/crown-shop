@@ -1,0 +1,38 @@
+.box-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .item-img {
+    margin-right: 15px;
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.counter-item {
+  display: flex;
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+.filter-item-fav-icon {
+  position: absolute;
+  display: block;
+  top: 2px;
+  margin-left: -43px;
+  cursor: pointer;
+}
