@@ -50,6 +50,7 @@ const Navigation = () => {
           <NavLink to='/bookmarks'>
             BOOKMARKS <FavouritesIcon />
           </NavLink>
+          {currentUser ? <NavLink to='/profile'>PROFILE</NavLink> : ''}
           {/* Check if user is logged in */}
           {/* {console.log(currentUser?.displayName)} */}
           {/* {console.log(currentUser)} */}
@@ -60,7 +61,8 @@ const Navigation = () => {
           ) : (
             <NavLink to='/auth'>SIGN IN</NavLink>
           )}
-          {currentUser ? <NavUser>{currentUser?.displayName}</NavUser> : ''}
+          {/* {currentUser ? <NavUser>{currentUser?.displayName}</NavUser> : ''} */}
+
           <CartIcon />
         </NavLinks>
         {/* Condition for cart is open */}

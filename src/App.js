@@ -10,6 +10,7 @@ import ShopFilter from './routes/shop-filter/shop-filter';
 import ShopFilterItem from './routes/shop-filter-item/shop-filter-item.component';
 import Checkout from './routes/checkout/checkout.component';
 import Favourites from './routes/favourites/favourites.component';
+import Profile from './routes/profile/profile.component';
 
 // Import style
 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path='shop-filter/:id' element={<ShopFilterItem />}></Route>
         <Route path='bookmarks' element={<Favourites />} />
         <Route path='auth' element={<Authentication />}></Route>
+        <Route path='profile' element={<Profile />}></Route>
         <Route path='checkout' element={<Checkout />}></Route>
       </Route>
     </Routes>

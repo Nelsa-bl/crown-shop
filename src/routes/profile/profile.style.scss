@@ -1,0 +1,26 @@
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-image {
+  margin-bottom: 30px;
+}
+
+.profile-container {
+  .profile-item {
+    label {
+      font-size: 12px;
+      margin-bottom: -10px;
+      display: block;
+    }
+    .cursive {
+      font-style: italic;
+      font-weight: 400;
+      font-size: 14px;
+      color: gray;
+    }
+  }
+}
