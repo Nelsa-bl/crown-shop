@@ -38,6 +38,9 @@ const Navigation = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Get window width and height
+  const windowSize = useRef([window.innerWidth, window.innerHeight]);
+
   // Observer for Navigation scroll
   const useElementOnScreen = (options) => {
     // Ref for header
@@ -74,12 +77,17 @@ const Navigation = () => {
   // Toggle Mobile menu
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
+
+    menuOpen
+      ? document.body.classList.remove('fix-body')
+      : document.body.classList.add('fix-body');
   };
 
   // Close on click outside
   const closeCart = (e) => {
     setTimeout(() => {
       setMenuOpen(false);
+      document.body.classList.remove('fix-body');
     }, '100');
   };
 
@@ -91,7 +99,7 @@ const Navigation = () => {
   // console.log(currentUser);
   return (
     <Fragment>
-      <NavigationContainer className={`${isVisable ? 'sticky' : ''}`}>
+      <NavigationContainer className={`${isVisable ? 'observe' : ''}`}>
         {/* to specifes path */}
         <LogoContainer to='/'>
           <Logo className='logo' />
@@ -121,7 +129,7 @@ const Navigation = () => {
           )}
           {/* {currentUser ? <NavUser>{currentUser?.displayName}</NavUser> : ''} */}
 
-          <CartIcon />
+          <CartIcon width={windowSize.current[0]} />
         </NavLinks>
         {/* Condition for cart is open */}
         {isCartOpen && <CartDropdown />}

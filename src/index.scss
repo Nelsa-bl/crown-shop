@@ -14,6 +14,12 @@ body {
   }
 }
 
+.fix-body {
+  @media (max-width: 576px) {
+    overflow: hidden;
+  }
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

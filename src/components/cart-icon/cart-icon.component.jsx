@@ -11,7 +11,7 @@ import { CartContext } from '../../contexts/cart.context';
 // Import styles
 import './cart-icon.style.scss';
 
-const CartIcon = () => {
+const CartIcon = ({ width }) => {
   // State
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   const [pathName, setPathName] = useState('');
@@ -48,7 +48,9 @@ const CartIcon = () => {
     <div
       ref={btnRef}
       className='cart-icon-container'
+      data-width={width}
       onClick={toggleIsCartOpen}
+      style={{ right: width < 500 ? `${235 - width}px` : '0' }}
     >
       <ShoppingIcon className='shopping-icon' />
       <span className='item-count'>{cartCount}</span>
