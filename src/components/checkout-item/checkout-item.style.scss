@@ -20,6 +20,9 @@
   .quantity,
   .price {
     width: 23%;
+    @media (max-width: 576px) {
+      font-size: 14px;
+    }
   }
 
   .quantity {
@@ -37,5 +40,8 @@
   .remove-button {
     padding-left: 12px;
     cursor: pointer;
+    @media (max-width: 576px) {
+      font-size: 12px;
+    }
   }
 }

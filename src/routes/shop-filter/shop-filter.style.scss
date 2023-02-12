@@ -12,6 +12,10 @@
   border: none;
   margin-right: 5px;
   cursor: pointer;
+
+  @media (max-width: 576px) {
+    margin-bottom: 10px;
+  }
 }
 
 .pro-container {
@@ -41,13 +45,18 @@
 
   @media (max-width: 576px) {
     width: auto;
-    height: 175px;
+    height: 350px;
   }
 }
 
 .pro-item {
   margin: 15px;
   animation: fadeIn 1s;
+
+  @media (max-width: 576px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
 
   h3 {
     @media (max-width: 576px) {
@@ -94,7 +103,7 @@
 
 .show-actives {
   height: 20px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 10px;
 }
 
@@ -115,6 +124,11 @@
   top: 70px;
   right: 25px;
   cursor: pointer;
+
+  @media (max-width: 576px) {
+    top: 65px;
+    right: 10px;
+  }
 }
 
 .search-field {

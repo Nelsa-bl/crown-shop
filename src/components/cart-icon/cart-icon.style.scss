@@ -9,9 +9,9 @@
   margin-top: -5px;
 
   @media (max-width: 576px) {
-    position: fixed;
-    top: 31px;
-    right: 70px;
+    position: absolute;
+    top: 32px;
+    right: -180px;
     visibility: visible;
   }
 

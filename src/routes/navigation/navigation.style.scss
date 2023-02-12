@@ -16,3 +16,16 @@
     visibility: visible !important;
   }
 }
+
+.sticky {
+  @media (max-width: 576px) {
+    position: fixed !important;
+    background-color: white;
+    z-index: 9;
+    top: 0;
+
+    .mobile-menu-btn {
+      right: 30px;
+    }
+  }
+}

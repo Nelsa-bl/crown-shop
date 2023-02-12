@@ -19,6 +19,13 @@ export const LogoContainer = styled(Link)`
   @media (max-width: 576px) {
     padding-left: 0;
   }
+
+  svg {
+    @media (max-width: 576px) {
+      position: absolute;
+      z-index: 9999;
+    }
+  }
 `;
 
 export const NavLinks = styled.div`
@@ -30,11 +37,18 @@ export const NavLinks = styled.div`
 
   @media (max-width: 576px) {
     display: block;
-    position: fixed;
+    position: absolute;
     z-index: 99;
     background-color: #fff;
+    height: 120vh;
     margin-left: -1px;
     visibility: hidden;
+    margin-left: -15px;
+    margin-top: -15px;
+    background-color: black;
+    padding-top: 100px;
+    padding-right: 30px;
+    padding-left: 10px;
   }
 `;
 
@@ -43,6 +57,7 @@ export const NavLink = styled(Link)`
   cursor: pointer;
   @media (max-width: 576px) {
     display: block;
+    color: white;
   }
 `;
 

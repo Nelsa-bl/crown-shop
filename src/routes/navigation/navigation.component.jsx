@@ -1,5 +1,5 @@
 // Import Fragment (component render to nothing)
-import { Fragment, useContext, useState, useEffect } from 'react';
+import { Fragment, useContext, useState, useEffect, useRef } from 'react';
 
 // Import Routes
 import { Outlet } from 'react-router-dom';
@@ -38,6 +38,40 @@ const Navigation = () => {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // Observer for Navigation scroll
+  const useElementOnScreen = (options) => {
+    // Ref for header
+    const maninNavRef = useRef(null);
+    const [isVisable, setIsVisable] = useState(false);
+
+    // When target hit do this
+    const callBackFunction = (entries) => {
+      const [entry] = entries;
+      if (!entry.isIntersecting) setIsVisable(true);
+      else setIsVisable(false);
+    };
+
+    // Listen for changes
+    useEffect(() => {
+      const observer = new IntersectionObserver(callBackFunction, options);
+      if (maninNavRef.current) observer.observe(maninNavRef.current);
+
+      return () => {
+        if (maninNavRef.current) observer.unobserve(maninNavRef.current);
+      };
+    }, [maninNavRef, options]);
+
+    return [maninNavRef, isVisable];
+  };
+
+  // Call Observer with options
+  const [maninNavRef, isVisable] = useElementOnScreen({
+    root: null,
+    rootMargin: '0px',
+    threshold: '1.0',
+  });
+
+  // Toggle Mobile menu
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
@@ -49,6 +83,7 @@ const Navigation = () => {
     }, '100');
   };
 
+  // Use effect for mobile menu
   useEffect(() => {
     document.querySelector('.mobile-menu').addEventListener('click', closeCart);
   }, []);
@@ -56,7 +91,7 @@ const Navigation = () => {
   // console.log(currentUser);
   return (
     <Fragment>
-      <NavigationContainer>
+      <NavigationContainer className={`${isVisable ? 'sticky' : ''}`}>
         {/* to specifes path */}
         <LogoContainer to='/'>
           <Logo className='logo' />
@@ -91,6 +126,8 @@ const Navigation = () => {
         {/* Condition for cart is open */}
         {isCartOpen && <CartDropdown />}
       </NavigationContainer>
+      {/* Listen for scroll */}
+      <div ref={maninNavRef}></div>
       <Outlet />
     </Fragment>
   );
