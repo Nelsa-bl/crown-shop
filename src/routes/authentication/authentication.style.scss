@@ -1,6 +1,31 @@
 .authentication-container {
   display: flex;
-  justify-content: space-between;
-  width: 900px;
+  justify-content: center;
+  width: 100%;
   margin: 30px auto;
+
+  @media (min-width: 768px) {
+    width: auto;
+  }
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 30px;
+  .tab {
+    background-color: #ededed;
+    width: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    cursor: pointer;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+
+    &.active {
+      background-color: black;
+      color: #fff;
+    }
+  }
 }

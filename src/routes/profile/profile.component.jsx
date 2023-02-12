@@ -1,9 +1,10 @@
 // Import Usecontext
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../../contexts/user.context';
+import { useNavigate } from 'react-router-dom';
 
-// Link
-import { Link } from 'react-router-dom';
+// Import Sign out
+import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 // Import component
 import Button from '../../components/button/button.component';
@@ -13,6 +14,12 @@ import './profile.style.scss';
 
 const Profile = () => {
   const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!currentUser) navigate('/auth');
+  }, [currentUser]);
+
   return (
     <div>
       {currentUser ? (
@@ -34,18 +41,12 @@ const Profile = () => {
               <label>Last signed in time:</label>
               <p className='cursive'>{currentUser.metadata.lastSignInTime}</p>
             </div>
+            <br />
+            <Button onClick={signOutUser}>SIGN OUT</Button>
           </div>
         </div>
       ) : (
-        <div className='center'>
-          <p>You must login to use this page.</p>
-          <Link
-            style={{ justifyContent: 'center', display: 'flex' }}
-            to='/auth'
-          >
-            <Button>Sign in</Button>
-          </Link>
-        </div>
+        ''
       )}
     </div>
   );

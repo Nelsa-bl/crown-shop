@@ -1,0 +1,18 @@
+.mobile-menu-btn {
+  position: absolute;
+  right: 0;
+  top: 28px;
+  border: none;
+  background-color: transparent;
+  display: none;
+
+  @media (max-width: 576px) {
+    display: block;
+  }
+}
+
+.mobile-nav-active {
+  @media (max-width: 576px) {
+    visibility: visible !important;
+  }
+}

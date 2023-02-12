@@ -3,6 +3,10 @@
   justify-content: center;
   position: relative;
 
+  @media (max-width: 576px) {
+    display: block;
+  }
+
   h3 {
     margin-top: 0;
     margin-bottom: 20px;
@@ -12,6 +16,11 @@
     margin-right: 15px;
     width: 400px;
     height: 400px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      height: 500px;
+    }
   }
 }
 
@@ -26,6 +35,10 @@
 
   p {
     font-size: 14px;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -35,4 +48,9 @@
   top: 2px;
   margin-left: -43px;
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    right: 20px;
+    top: 20px;
+  }
 }

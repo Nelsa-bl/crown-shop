@@ -8,6 +8,13 @@
   cursor: pointer;
   margin-top: -5px;
 
+  @media (max-width: 576px) {
+    position: fixed;
+    top: 31px;
+    right: 70px;
+    visibility: visible;
+  }
+
   .shopping-icon {
     width: 24px;
     height: 24px;

@@ -23,8 +23,8 @@ const ShopFilter = () => {
 
   useEffect(() => {
     // Filter users
-    const newFilteredUsers = filterProducts.filter((mon) => {
-      return mon?.name.toLocaleLowerCase().includes(searchField);
+    const newFilteredUsers = filterProducts.filter((product) => {
+      return product?.name.toLocaleLowerCase().includes(searchField);
     });
 
     // Set new state
@@ -47,7 +47,7 @@ const ShopFilter = () => {
 
   // Helper function
   const refresh = (data, condition, set) => {
-    const update = data.map((el) => el);
+    const update = [...data];
     data.forEach((el) => (el.isAttive = condition));
     set(update);
   };
@@ -56,7 +56,7 @@ const ShopFilter = () => {
   const convertToArr = () => {
     for (let [key, value] of Object.entries(categoriesMap)) {
       // console.log(`Key:::: ${key}`);
-      value.map((product) => {
+      value.forEach((product) => {
         product.category = key;
         product.isActive = true;
 
