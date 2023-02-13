@@ -26,7 +26,15 @@ const Profile = () => {
         <div>
           <h2>Profile</h2>
           <div className='profile-image'>
-            <img src={currentUser.photoURL} alt={currentUser.displayName} />
+            {currentUser.photoURL ? (
+              <img src={currentUser.photoURL} alt={currentUser.displayName} />
+            ) : (
+              <div className='noProfileImg'>
+                <span className='noProfileImgName'>
+                  {currentUser.displayName.slice(0, 1).toUpperCase()}
+                </span>
+              </div>
+            )}
           </div>
           <div className='profile-container'>
             <div className='profile-item'>

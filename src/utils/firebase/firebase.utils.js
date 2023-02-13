@@ -11,6 +11,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from 'firebase/auth';
 
 // Import Firebase Database
@@ -125,6 +126,13 @@ export const createUserDocumentFromAuth = async (
     const { displayName, email } = userAuth;
     // Get created date
     const createdAt = new Date();
+
+    await updateProfile(auth.currentUser, {
+      displayName: additionalInformation.displayName,
+    }).catch((error) => console.log(error));
+    await createUserDocumentFromAuth(auth.currentUser, { displayName }).catch(
+      (error) => console.log(error)
+    );
 
     try {
       // Send data back to DB with following data
